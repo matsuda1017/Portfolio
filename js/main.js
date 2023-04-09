@@ -4,9 +4,9 @@
   // ハンバーガーメニュー押下時、サブメニューを表示
   const open = document.getElementById('menu_open');
   const spHeader = document.getElementById('sp_header');
+  const spJumps = document.querySelectorAll('sp_jump');
 
   open.addEventListener('click', () => {
-
     if (open.classList.contains('active')) {
       open.classList.remove('active');
       spHeader.classList.remove('display');
@@ -94,6 +94,13 @@
   const smoothScrollTrigger = document.querySelectorAll('a[href^="#jump"]');
   for (let i = 0; i < smoothScrollTrigger.length; i++) {
     smoothScrollTrigger[i].addEventListener('click', (e) => {
+
+      // サブメニューが開いている場合、閉じる
+      if (open.classList.contains('active')) {
+        open.classList.remove('active');
+        spHeader.classList.remove('display');
+      }
+
       e.preventDefault();
       let href = smoothScrollTrigger[i].getAttribute('href');
       let targetElement = document.getElementById(href.replace('#jump_', ''));
