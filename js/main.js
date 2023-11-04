@@ -4,30 +4,19 @@
   // ハンバーガーメニュー押下時、サブメニューを表示
   const open = document.getElementById('menu_open');
   const spHeader = document.getElementById('sp_header');
-  const spJumps = document.querySelectorAll('sp_jump');
+  const body = document.querySelector('body');
 
   open.addEventListener('click', () => {
     if (open.classList.contains('active')) {
       open.classList.remove('active');
+      body.classList.remove('active');
       spHeader.classList.remove('display');
     } else {
       open.classList.add('active');
+      body.classList.add('active');
       spHeader.classList.add('display');
     }
-
-    // サブメニュー表示時、スクロールキャンセル
-    if (open.classList.contains('active')) {
-      document.addEventListener('touchmove', noscroll, { passive: false });
-      document.addEventListener('wheel', noscroll, { passive: false });
-    } else {
-      document.removeEventListener('touchmove', noscroll);
-      document.removeEventListener('wheel', noscroll);
-    }
   });
-
-  function noscroll(e) {
-    e.preventDefault();
-  }
 
   // ヘッダーの文字色を制御
   const top = document.querySelector('.top');
@@ -98,6 +87,7 @@
       // サブメニューが開いている場合、閉じる
       if (open.classList.contains('active')) {
         open.classList.remove('active');
+        body.classList.remove('active');
         spHeader.classList.remove('display');
       }
 
