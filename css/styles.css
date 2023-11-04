@@ -12,6 +12,11 @@ body {
   margin: -70px 0 0 0;
 }
 
+body.active {  
+  height: 100%;
+  overflow: hidden;
+}
+
 .top {
   position: relative;
   width: 100%;
@@ -796,7 +801,7 @@ section {
 
 .card p {
   font-size: 0.9rem;
-  padding: 0 8px;
+  padding: 0 5%;
   text-align: center;
 }
 
@@ -860,6 +865,10 @@ section {
   margin: 0 1rem;
   width: 100%;
   overflow: hidden;
+}
+
+#works .card p {
+  text-align: left;
 }
 
 #works .card img {
